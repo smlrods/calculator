@@ -37,11 +37,12 @@ function operate(operator, operand1, operand2) {
 const btnDigits = document.querySelectorAll('.btn-digits');
 const inputOperandDisplay = document.querySelector('.input-operand');
 const storedOperandDisplay = document.querySelector('.stored-operand');
-const btnClear = document.querySelector('.btn-clear');
+const btnClear = document.querySelector('#btn-clear');
 
 let operandOne = '';
 let operandTwo = '';
 let operator = '';
+inputOperandDisplay.textContent = '0';
 
 btnDigits.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -74,4 +75,11 @@ btnEqual.addEventListener('click', () => {
     inputOperandDisplay.textContent = operate(operator, +operandOne, +operandTwo);
 });
 
-btnClear.addEventListener('click')
+btnClear.addEventListener('click', () => {
+    console.log('click')
+    operandOne = '';
+    operandTwo = '';
+    operator = '';
+    inputOperandDisplay.textContent = '0';
+    storedOperandDisplay.textContent = '';
+});
