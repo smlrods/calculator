@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator {
+    border: 3px solid black;
+    width: 400px;
+}
+
+#display {
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.input-operand {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+    font-size: 20px;
+}
+
+.stored-operand {
+    /* background-color: red; */
+    height: 20px;
+}
+
+button {
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+}
+
+#digits {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,33 +9,39 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    <div id="container">
+    <div id="calculator">
         <div id="display">
             <div class="stored-operand"></div>
             <div class="input-operand"></div>
+        </div>
+        <button id="btn-clear">clear</button>
+        <div id="digits">
+            <div>
+                <button class="btn-digits">1</button>
+                <button class="btn-digits">2</button>
+                <button class="btn-digits">3</button>
+                <button class="btn-digits">4</button>
+                <button class="btn-digits">5</button>
+                <button class="btn-digits">6</button>
+                <button class="btn-digits">7</button>
+                <button class="btn-digits">8</button>
+                <button class="btn-digits">9</button>
+                <button class="btn-digits">0</button>
+                <button id="btn-equal">=</button>
+                <button>.</button>
+            </div>
+            <div>
+                <button class="btn-operations">+</button>
+                <button class="btn-operations">-</button>
+                <button class="btn-operations">x</button>
+                <button class="btn-operations">/</button>
             </div>
         </div>
-        <div id="digits">
-            <button class="btn-digits">0</button>
-            <button class="btn-digits">1</button>
-            <button class="btn-digits">2</button>
-            <button class="btn-digits">3</button>
-            <button class="btn-digits">4</button>
-            <button class="btn-digits">5</button>
-            <button class="btn-digits">6</button>
-            <button class="btn-digits">7</button>
-            <button class="btn-digits">8</button>
-            <button class="btn-digits">9</button>
-        </div>
-        <div id="operations">
-            <button class="btn-operations">+</button>
-            <button class="btn-operations">-</button>
-            <button class="btn-operations">x</button>
-            <button class="btn-operations">/</button>
-        </div>
-        <button id="btn-equal">=</button>
-        <button id="btn-clear">clear</button>
+
+    </div>
     </div>
 </body>
+
 </html>

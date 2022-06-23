@@ -83,3 +83,4 @@ btnClear.addEventListener('click', () => {
     inputOperandDisplay.textContent = '0';
     storedOperandDisplay.textContent = '';
 });
+
