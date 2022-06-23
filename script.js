@@ -19,13 +19,13 @@ function divide(a, b) {
 // OPERATE FUNCTION
 
 function operate(operator, operand1, operand2) {
-    if(operator === '+') {
+    if (operator === '+') {
         return add(operand1, operand2);
-    } else if(operator === '-') {
+    } else if (operator === '-') {
         return subtract(operand1, operand2);
-    } else if(operator === 'x') {
+    } else if (operator === 'x') {
         return multiply(operand1, operand2)
-    } else if(operator === '/') {
+    } else if (operator === '/') {
         return divide(operand1, operand2);
     } else {
         return console.error('ERROR!');
@@ -47,10 +47,10 @@ inputOperandDisplay.textContent = '0';
 btnDigits.forEach((btn) => {
     btn.addEventListener('click', () => {
         inputOperandDisplay.textContent = '';
-        if(operator === '') {
+        if (operator === '') {
             operandOne += btn.textContent;
             inputOperandDisplay.textContent += operandOne;
-        } else {
+        } else if (!(operandOne === '')) {
             operandTwo += btn.textContent;
             inputOperandDisplay.textContent += operandTwo;
         }
@@ -61,22 +61,41 @@ const btnOperations = document.querySelectorAll('.btn-operations');
 
 btnOperations.forEach((btn) => {
     btn.addEventListener('click', () => {
-        operator = btn.textContent;
-        storedOperandDisplay.textContent = operandOne + ' ' + operator;
-        inputOperandDisplay.textContent = '0';
-        // displayOperator.textContent = operator;
-    });
-});
+        if(!(operandOne === '')) {
+            operator = btn.textContent;
+            storedOperandDisplay.textContent = operandOne + ' ' + operator;
+            inputOperandDisplay.textContent = '0';
+            if (!(operandTwo == '')) {
+                alert('hi')
+                storedOperandDisplay.textContent = operate(operator, +operandOne, +operandTwo);
+                operandOne = operate(operator, +operandOne, +operandTwo);
+                operandTwo = '';
+            }
+        }
+    })});
 
+    
 const btnEqual = document.querySelector('#btn-equal');
 
 btnEqual.addEventListener('click', () => {
-    storedOperandDisplay.textContent = operandOne + ' ' + operator + ' ' + operandTwo;
-    inputOperandDisplay.textContent = operate(operator, +operandOne, +operandTwo);
+    // se o operando 1 estiver vazio não executa, 
+    if(operandTwo === '0' && operator == '/') {
+        // alert('hi')
+        storedOperandDisplay.textContent = '';
+        inputOperandDisplay.textContent = 'ERROR';
+        operandOne = '';
+        operandTwo = '';
+        operator = '';
+    } else if (!(operandTwo === '')) {
+        storedOperandDisplay.textContent = operandOne + ' ' + operator + ' ' + operandTwo + ' =';
+        inputOperandDisplay.textContent = operate(operator, +operandOne, +operandTwo);
+        operandOne = '';
+        operandTwo = '';
+        operator = '';
+    }
 });
 
 btnClear.addEventListener('click', () => {
-    console.log('click')
     operandOne = '';
     operandTwo = '';
     operator = '';

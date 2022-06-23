@@ -12,8 +12,11 @@ body {
 }
 
 #calculator {
-    border: 3px solid black;
+    border: 2px solid black;
+    /* border-width: 3px 6px 6px 3px;  */
+    box-shadow: 5px 5px 1px black;
     width: 400px;
+    padding: 10px;
 }
 
 #display {
@@ -24,6 +27,7 @@ body {
     justify-content: center;
     padding: 10px;
     margin: 10px;
+    box-shadow: 2px 2px 1px black;
 }
 
 .input-operand {
@@ -43,6 +47,8 @@ button {
     background-color: transparent;
     width: 30px;
     height: 30px;
+    border: solid black;
+    border-width: 3px 4px 4px 3px;
 }
 
 #digits {
