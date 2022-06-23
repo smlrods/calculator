@@ -31,3 +31,16 @@ function operate(operator, operand1, operand2) {
         return console.error('ERROR!');
     }
 }
+
+// EVENTS
+
+const btnDigits = document.querySelectorAll('.btn-digits');
+const display = document.querySelector('#display');
+let operandOne = 0;
+
+btnDigits.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        display.textContent += btn.textContent;
+        operandOne = display.textContent;
+    });
+});
