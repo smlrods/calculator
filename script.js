@@ -23,7 +23,7 @@ function operate(operator, operand1, operand2) {
         return add(operand1, operand2);
     } else if(operator === '-') {
         return subtract(operand1, operand2);
-    } else if(operator === '*') {
+    } else if(operator === 'x') {
         return multiply(operand1, operand2)
     } else if(operator === '/') {
         return divide(operand1, operand2);
@@ -35,12 +35,43 @@ function operate(operator, operand1, operand2) {
 // EVENTS
 
 const btnDigits = document.querySelectorAll('.btn-digits');
-const display = document.querySelector('#display');
-let operandOne = 0;
+const inputOperandDisplay = document.querySelector('.input-operand');
+const storedOperandDisplay = document.querySelector('.stored-operand');
+const btnClear = document.querySelector('.btn-clear');
+
+let operandOne = '';
+let operandTwo = '';
+let operator = '';
 
 btnDigits.forEach((btn) => {
     btn.addEventListener('click', () => {
-        display.textContent += btn.textContent;
-        operandOne = display.textContent;
+        inputOperandDisplay.textContent = '';
+        if(operator === '') {
+            operandOne += btn.textContent;
+            inputOperandDisplay.textContent += operandOne;
+        } else {
+            operandTwo += btn.textContent;
+            inputOperandDisplay.textContent += operandTwo;
+        }
     });
 });
+
+const btnOperations = document.querySelectorAll('.btn-operations');
+
+btnOperations.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        operator = btn.textContent;
+        storedOperandDisplay.textContent = operandOne + ' ' + operator;
+        inputOperandDisplay.textContent = '0';
+        // displayOperator.textContent = operator;
+    });
+});
+
+const btnEqual = document.querySelector('#btn-equal');
+
+btnEqual.addEventListener('click', () => {
+    storedOperandDisplay.textContent = operandOne + ' ' + operator + ' ' + operandTwo;
+    inputOperandDisplay.textContent = operate(operator, +operandOne, +operandTwo);
+});
+
+btnClear.addEventListener('click')
