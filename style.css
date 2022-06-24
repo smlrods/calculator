@@ -16,7 +16,7 @@ body {
     /* border-width: 3px 6px 6px 3px;  */
     box-shadow: 5px 5px 1px black;
     width: 400px;
-    padding: 10px;
+    padding: 20px;
 }
 
 #display {
@@ -26,7 +26,6 @@ body {
     align-items: flex-end;
     justify-content: center;
     padding: 10px;
-    margin: 10px;
     box-shadow: 2px 2px 1px black;
 }
 
@@ -52,7 +51,44 @@ button {
 }
 
 #digits {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    display: flex;
+    /* gap: 3px; */
+}
+
+.digits-left {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
+.numbers {
+    gap: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.btn-digits {
+    flex: 0 0 87px;
+}
+
+.digits-right {
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: flex-end;
+    gap: 3px;
+}
+
+.btn-operations {
+    flex: 0 0 88px;
+}
+
+.footer-numbers {
+    display: flex;
+    gap: 3px;
+}
+
+.footer-numbers button {
+    flex: 0 1 87px;  
 }

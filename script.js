@@ -62,14 +62,19 @@ const btnOperations = document.querySelectorAll('.btn-operations');
 btnOperations.forEach((btn) => {
     btn.addEventListener('click', () => {
         if(!(operandOne === '')) {
-            operator = btn.textContent;
-            storedOperandDisplay.textContent = operandOne + ' ' + operator;
-            inputOperandDisplay.textContent = '0';
-            if (!(operandTwo == '')) {
-                alert('hi')
-                storedOperandDisplay.textContent = operate(operator, +operandOne, +operandTwo);
+            // ATUALIZA O OPERADOR SOMENTE QUANDO NÃO EXISTE VALOR NO OPERANDO DOIS
+            // NA PRIMEIRA INTERAÇÃO, O OPERADOR TERÁ UM VALOR, E PODERÁ SE ATUALIZADO ENQUANTO O OPERADOR DOIS ESTIVER VAZIO
+            //
+            if(!(operandTwo === '')) {
                 operandOne = operate(operator, +operandOne, +operandTwo);
+                operator = btn.textContent;
+                storedOperandDisplay.textContent = operandOne + ' ' +  operator;
+                inputOperandDisplay.textContent = '0';
                 operandTwo = '';
+            } else {
+                operator = btn.textContent;
+                storedOperandDisplay.textContent = operandOne + ' ' +  operator;
+                inputOperandDisplay.textContent = '0';
             }
         }
     })});
