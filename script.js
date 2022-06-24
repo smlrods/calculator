@@ -93,7 +93,7 @@ btnEqual.addEventListener('click', () => {
         operator = '';
     } else if (!(operandTwo === '')) {
         storedOperandDisplay.textContent = operandOne + ' ' + operator + ' ' + operandTwo + ' =';
-        inputOperandDisplay.textContent = operate(operator, +operandOne, +operandTwo);
+        inputOperandDisplay.textContent = Math.floor((operate(operator, +operandOne, +operandTwo))*1000)/1000;
         operandOne = '';
         operandTwo = '';
         operator = '';
@@ -108,3 +108,19 @@ btnClear.addEventListener('click', () => {
     storedOperandDisplay.textContent = '';
 });
 
+const btnFloat = document.querySelector('#btn-float');
+
+btnFloat.addEventListener('click', () => {
+    if (operator === '') {
+        if(operandOne === '') operandOne = '0';
+        if(!(operandOne.split('').includes('.'))) {
+            operandOne += '.';
+            inputOperandDisplay.textContent = operandOne;
+        }
+    } else  {
+        if(!(operandTwo.split('').includes('.'))) {
+            operandTwo += '.';
+            inputOperandDisplay.textContent = operandTwo;
+        }
+    }
+});
