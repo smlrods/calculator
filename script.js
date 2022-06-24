@@ -120,7 +120,7 @@ function addPointFloat() {
             inputOperandDisplay.textContent = operandTwo;
         }
     }
-
+}
 // MATH OPERATORS FUNCTIONS
 
 function add(a, b) {
@@ -153,5 +153,4 @@ function operate(operator, operand1, operand2) {
     } else {
         return console.error('ERROR!');
     }
-}
 }
