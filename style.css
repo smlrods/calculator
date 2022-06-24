@@ -105,9 +105,12 @@ button:hover {
     flex: 0 1 87px;  
 }
 
-#btn-clear {
+#btn-clear,
+#btn-delete {
     margin: 10px 0;
-    width: 100px;
-    justify-self: flex-end;
-    align-self: flex-end;
+    flex-grow: 1;
+}
+
+#options {
+    display: flex;
 }

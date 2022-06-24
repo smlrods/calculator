@@ -61,30 +61,31 @@ const btnOperations = document.querySelectorAll('.btn-operations');
 
 btnOperations.forEach((btn) => {
     btn.addEventListener('click', () => {
-        if(!(operandOne === '')) {
+        if (!(operandOne === '')) {
             // ATUALIZA O OPERADOR SOMENTE QUANDO NÃO EXISTE VALOR NO OPERANDO DOIS
             // NA PRIMEIRA INTERAÇÃO, O OPERADOR TERÁ UM VALOR, E PODERÁ SE ATUALIZADO ENQUANTO O OPERADOR DOIS ESTIVER VAZIO
             //
-            if(!(operandTwo === '')) {
+            if (!(operandTwo === '')) {
                 operandOne = operate(operator, +operandOne, +operandTwo);
                 operator = btn.textContent;
-                storedOperandDisplay.textContent = operandOne + ' ' +  operator;
+                storedOperandDisplay.textContent = operandOne + ' ' + operator;
                 inputOperandDisplay.textContent = '0';
                 operandTwo = '';
             } else {
                 operator = btn.textContent;
-                storedOperandDisplay.textContent = operandOne + ' ' +  operator;
+                storedOperandDisplay.textContent = operandOne + ' ' + operator;
                 inputOperandDisplay.textContent = '0';
             }
         }
-    })});
+    })
+});
 
-    
+
 const btnEqual = document.querySelector('#btn-equal');
 
 btnEqual.addEventListener('click', () => {
     // se o operando 1 estiver vazio não executa, 
-    if(operandTwo === '0' && operator == '/') {
+    if (operandTwo === '0' && operator == '/') {
         // alert('hi')
         storedOperandDisplay.textContent = '';
         inputOperandDisplay.textContent = 'ERROR';
@@ -93,7 +94,7 @@ btnEqual.addEventListener('click', () => {
         operator = '';
     } else if (!(operandTwo === '')) {
         storedOperandDisplay.textContent = operandOne + ' ' + operator + ' ' + operandTwo + ' =';
-        inputOperandDisplay.textContent = Math.floor((operate(operator, +operandOne, +operandTwo))*1000)/1000;
+        inputOperandDisplay.textContent = Math.floor((operate(operator, +operandOne, +operandTwo)) * 1000) / 1000;
         operandOne = '';
         operandTwo = '';
         operator = '';
@@ -112,15 +113,30 @@ const btnFloat = document.querySelector('#btn-float');
 
 btnFloat.addEventListener('click', () => {
     if (operator === '') {
-        if(operandOne === '') operandOne = '0';
-        if(!(operandOne.split('').includes('.'))) {
+        if (operandOne === '') operandOne = '0';
+        if (!(operandOne.split('').includes('.'))) {
             operandOne += '.';
             inputOperandDisplay.textContent = operandOne;
         }
-    } else  {
-        if(!(operandTwo.split('').includes('.'))) {
+    } else {
+        if (!(operandTwo.split('').includes('.'))) {
             operandTwo += '.';
             inputOperandDisplay.textContent = operandTwo;
         }
     }
+});
+
+const btnDelete = document.querySelector('#btn-delete');
+
+btnDelete.addEventListener('click', () => {
+    if(operator === '') {
+        operandOne = operandOne.slice(0, -1);
+        inputOperandDisplay.textContent = operandOne;
+        if(operandOne === '') inputOperandDisplay.textContent = '0';
+    } else {
+        operandTwo = operandTwo.slice(0, -1);
+        inputOperandDisplay.textContent = operandTwo;
+        if(operandTwo === '') inputOperandDisplay.textContent = '0';
+    }
+
 });
