@@ -10,13 +10,15 @@
 body {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #FFFDDE;
 }
 
 #calculator {
     border: 4px solid black;
-    /* border-width: 3px 6px 6px 3px;  */
+    background-color: white;
     box-shadow: -5px 5px 1px black;
     width: 400px;
     padding: 20px;
@@ -59,7 +61,7 @@ button {
 }
 
 button:hover {
-    background-color: black;
+    background-color: #FFCBCB;
     color: white;
 }
 
@@ -96,8 +98,9 @@ button:hover {
 .btn-operations,
 #btn-equal,
 #btn-float {
-    background-color: black;
+    background-color: #D9D7F1;
     color: white;
+    font-weight: bold;
     flex: 0 0 88px;
 }
 .btn-operations:hover,
@@ -117,8 +120,15 @@ button:hover {
 
 #btn-clear,
 #btn-delete {
+    background-color: #E7FBBE;
     margin: 10px 0;
     flex-grow: 1;
+}
+
+#btn-clear:hover,
+#btn-delete:hover {
+    color: black;
+    background-color: #FFFDDE;
 }
 
 #options {
